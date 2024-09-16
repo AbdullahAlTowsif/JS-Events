@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegate</title>
+</head>
+<body>
+    <h1>Exploring event Delegate</h1>
+    <section>
+        <ul id="list-container">
+            <li class="item">Lorem, ipsum dolor.</li>
+            <li class="item">Atque, beatae iusto.</li>
+            <li class="item">Harum, voluptatum fugiat?</li>
+            <li class="item">Asperiores, amet modi?</li>
+            <li class="item">Possimus, perspiciatis quibusdam!</li>
+            <li class="item">Illo, tempore quasi.</li>
+        </ul>
+        <button id="add-item">Add Item</button>
+    </section>
+    <script>
+        // const items = document.getElementsByClassName('item');
+        // for(const item of items){
+        //     item.addEventListener('click', function(event){
+        //         // console.log(event.target.parentNode);
+        //         event.target.parentNode.removeChild(event.target);
+        //     })
+        // }
+        /* eikhane event listener ta child e add kora.*/
+        // Now adding the event listener to the parent
+        document.getElementById('list-container').addEventListener('click', function(){
+            // console.log(event.target);
+            event.target.parentNode.removeChild(event.target);
+        });
+
+        document.getElementById('add-item').addEventListener('click', function(){
+            const listContainer = document.getElementById('list-container');
+            const li = document.createElement('li');
+            li.innerText = 'Brand new item added';
+            li.classList.add('item');
+            listContainer.appendChild(li);
+        })
+    </script>
+</body>
+</html>

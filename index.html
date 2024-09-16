@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM Events</title>
+</head>
+<body>
+    <h1>DOM ER AJK SPECIAL EVENTS</h1>
+    <button onclick="console.log(7)">Click Me!</button>
+    <!-- step: 1 -->
+    <button onclick="document.body.style.backgroundColor='Yellow'">Make Yellow</button>
+    <button onclick="makeRed()">Make Red</button>
+    <button id="make-blue">Make Blue</button>
+    <button id="make-purple">Make Purple</button>
+    <button id="make-pink">Make Pink</button>
+    <button id="make-green">Make Green</button>
+    <button id="make-golden">Make Golden</button>
+    <script src="js/events.js"></script>
+    <script>
+        // step: 2
+        function makeRed(){
+            document.body.style.backgroundColor= 'red';
+        }
+        // step: 3
+        const makeBlueButton = document.getElementById('make-blue');
+        makeBlueButton.onclick = makeBlue;
+        function makeBlue(){
+            document.body.style.backgroundColor = 'blue';
+        }
+        // step: 4
+        const purpleButton = document.getElementById('make-purple');
+        console.log(purpleButton);
+        purpleButton.onclick = function makePurple(){
+            document.body.style.backgroundColor = 'purple';
+        }
+
+        // step: 5
+        const pinkButton = document.getElementById('make-pink');
+        pinkButton.addEventListener('click', makePink);
+        function makePink(){
+            document.body.style.backgroundColor = 'pink';
+        }
+
+        // step: 6
+        const greenButton = document.getElementById('make-green');
+        greenButton.addEventListener('click', function makeGreen(){
+            document.body.style.backgroundColor = 'green';
+        });
+
+        // step: 7 => final
+        document.getElementById('make-golden').addEventListener('click', function(){
+            document.body.style.backgroundColor = 'goldenRod';
+        });
+    </script>
+</body>
+</html>
